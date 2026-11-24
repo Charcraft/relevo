@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relevo · La noche trabaja por ti</title>
+<meta name="description" content="Tareas, ensayos, investigaciones, avances de tesis, presentaciones, documentos y cursos completos. De $50 a $250 MXN, ves el borrador antes de pagar y revisiones incluidas.">
+<meta name="theme-color" content="#08090D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Relevo · La noche trabaja por ti">
+<meta property="og:description" content="Cobramos por el tiempo que a ti te quitaría hacerlo. Trabajos desde $50, cursos desde $100, ves el borrador antes de pagar.">
+<meta property="og:image" content="assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/instrument-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/courier-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/turno.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<a class="skip" href="#pedido">Saltar al formulario</a>
+
+<header class="topbar" id="topbar">
+  <div class="wrap topbar__in">
+    <a class="brand" href="#inicio" aria-label="Relevo, inicio">
+      <svg class="brand__mark" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+        <path d="M3 14.6 8.4 20"/>
+        <path d="M11.6 20.2 24.6 7.2"/>
+      </svg>
+      <span class="brand__word">relevo</span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="#precios">Precios</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#turno">El turno</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+
+    <div class="topbar__right">
+      <span class="clock mono" id="clock" aria-label="Hora local">--:--</span>
+      <a class="btn btn--small btn--solid" id="topWa" href="#pedido">WhatsApp</a>
+    </div>
+  </div>
+  <div class="topbar__rule" aria-hidden="true"><span id="scrollBar"></span></div>
+</header>
+
+<main>
+
+  <!-- ============================================================ HERO -->
+  <section class="hero" id="inicio">
+    <canvas class="hero__gl" id="heroScene" aria-hidden="true"></canvas>
+    <div class="hero__veil" aria-hidden="true"></div>
+
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <h1 class="hero__title">
+          La noche<br>
+          <em>trabaja</em> por ti.
+        </h1>
+
+        <p class="hero__sub">Tareas, ensayos, investigaciones, avances de tesis, presentaciones, documentos y cursos completos. Cobramos por el tiempo que a ti te quitaría hacerlo: mandas las instrucciones y te devolvemos el trabajo listo.</p>
+
+        <p class="hero__promo" id="flyerPromo" hidden>20% en tu primera tarea · código <b>FLYER20</b></p>
+
+        <div class="hero__actions">
+          <a class="btn btn--solid btn--lg" href="#calculadora">
+            Calcular mi rango
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M8.5 3.5 13 8l-4.5 4.5"/></svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" id="heroWa" href="#pedido">Cotizar por WhatsApp</a>
+        </div>
+
+        <p class="hero__scope mono">Estudiantes · Tesis y posgrado · Profesionistas · Cursos con constancia</p>
+
+        <dl class="hero__facts">
+          <div>
+            <dt class="mono">Trabajos</dt>
+            <dd>$50 a $250 <span>MXN</span></dd>
+          </div>
+          <div>
+            <dt class="mono">Cursos</dt>
+            <dd>Desde $100</dd>
+          </div>
+          <div>
+            <dt class="mono">Sin riesgo</dt>
+            <dd>Ves el borrador primero</dd>
+          </div>
+        </dl>
+      </div>
+
+      <p class="hero__aside mono" aria-hidden="true">
+        <span class="hero__aside-dot"></span>
+        Turno abierto
+      </p>
+    </div>
+
+    <div class="hero__hint mono" aria-hidden="true">Desliza</div>
+  </section>
+
+  <!-- ============================================================ TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track" id="tickerTrack">
+      <span class="ticker__set">
+        <i></i><span>Ves el borrador antes de pagar</span>
+        <i></i><span>De $50 a $250 MXN</span>
+        <i></i><span>Tesis y capítulos</span>
+        <i></i><span>Cursos completos desde $100</span>
+        <i></i><span>Revisiones sin costo</span>
+        <i></i><span>AWS · Cambridge · Constancias</span>
+        <i></i><span>Trabajo en privado</span>
+      </span>
+      <span class="ticker__set">
+        <i></i><span>Ves el borrador antes de pagar</span>
+        <i></i><span>De $50 a $250 MXN</span>
+        <i></i><span>Tesis y capítulos</span>
+        <i></i><span>Cursos completos desde $100</span>
+        <i></i><span>Revisiones sin costo</span>
+        <i></i><span>AWS · Cambridge · Constancias</span>
+        <i></i><span>Trabajo en privado</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ============================================================ PARA QUIÉN -->
+  <section class="section audience" id="para-quien">
+    <div class="wrap">
+      <div class="sheet-head">
+        <h2 class="h2">No es solo para<br>estudiantes.</h2>
+        <div class="sheet-head__side">
+          <p>Si tienes que entregar algo escrito y el tiempo no te alcanza, es para ti. Cambia el formato, no el problema.</p>
+          <p class="mono sheet-head__note">Servicio abierto a cualquier persona</p>
+        </div>
+      </div>
+
+      <div class="aud-grid">
+        <article class="aud" data-reveal style="--i:0">
+          <span class="aud__tag mono">Estudiante</span>
+          <h3 class="aud__title">Tareas, ensayos e infografías</h3>
+          <p class="aud__body">Secundaria, prepa o universidad. Cada trabajo hecho desde cero con la estructura, las fuentes y el formato que pida tu materia.</p>
+        </article>
+
+        <article class="aud" data-reveal style="--i:1">
+          <span class="aud__tag mono">Posgrado y tesis</span>
+          <h3 class="aud__title">Tesis, maestrías y reportes largos</h3>
+          <p class="aud__body">Avances por capítulo, investigaciones extensas con bibliografía, tablas, figuras y formato APA o el estilo que exija tu programa.</p>
+        </article>
+
+        <article class="aud" data-reveal style="--i:2">
+          <span class="aud__tag mono">Profesionista</span>
+          <h3 class="aud__title">Documentos y capacitación laboral</h3>
+          <p class="aud__body">Informes, reportes técnicos o clínicos, presentaciones y cursos obligatorios que no te da tiempo de sacar entre turnos.</p>
+        </article>
+
+        <article class="aud" data-reveal style="--i:3">
+          <span class="aud__tag mono">Certificación</span>
+          <h3 class="aud__title">Cursos completos en línea</h3>
+          <p class="aud__body">AWS Academy, Cambridge One, Canvas y plataformas con constancia. Llevamos cada unidad hasta que tengas tu certificado.</p>
+        </article>
+      </div>
+
+      <p class="aud__foot">Si se entrega en línea y se puede escribir, se puede cotizar. Si no sabes en qué categoría cae, mándalo igual.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ PRECIOS -->
+  <section class="section prices" id="precios">
+    <div class="wrap">
+      <div class="sheet-head">
+        <h2 class="h2">De 50 a 250 pesos,<br>según lo que pida.</h2>
+        <div class="sheet-head__side">
+          <p>No hay tarifa única: un ensayo de tres páginas no cuesta lo mismo que una investigación con fuentes. Estos son los rangos reales.</p>
+          <p class="mono sheet-head__note">Todo en pesos mexicanos</p>
+        </div>
+      </div>
+
+      <ul class="price-list" id="priceList">
+        <li class="price" data-reveal style="--i:0">
+          <div class="price__top">
+            <h3 class="price__name">Ensayo o investigación</h3>
+            <span class="price__meta mono">por trabajo</span>
+            <span class="price__range mono" data-range="ensayo">$100 a $250</span>
+          </div>
+          <div class="price__track" aria-hidden="true"><span class="price__fill" style="--lo:48%;--hi:100%"></span></div>
+          <p class="price__note">Sube con las páginas, las fuentes y el formato que pidan los criterios.</p>
+        </li>
+
+        <li class="price" data-reveal style="--i:1">
+          <div class="price__top">
+            <h3 class="price__name">Presentación</h3>
+            <span class="price__meta mono">por trabajo</span>
+            <span class="price__range mono" data-range="presentacion">$80 a $180</span>
+          </div>
+          <div class="price__track" aria-hidden="true"><span class="price__fill" style="--lo:32%;--hi:72%"></span></div>
+          <p class="price__note">Diapositivas con notas del expositor, no solo texto pegado.</p>
+        </li>
+
+        <li class="price" data-reveal style="--i:2">
+          <div class="price__top">
+            <h3 class="price__name">Cambridge One</h3>
+            <span class="price__meta mono">por unidad</span>
+            <span class="price__range mono" data-range="cambridge">$60 a $150</span>
+          </div>
+          <div class="price__track" aria-hidden="true"><span class="price__fill" style="--lo:24%;--hi:60%"></span></div>
+          <p class="price__note">Unidades, listening, reading y tareas con fecha en la plataforma.</p>
+        </li>
+
+        <li class="price" data-reveal style="--i:3">
+          <div class="price__top">
+            <h3 class="price__name">Tarea en línea</h3>
+            <span class="price__meta mono">por trabajo</span>
+            <span class="price__range mono" data-range="tarea">$50 a $120</span>
+          </div>
+          <div class="price__track" aria-hidden="true"><span class="price__fill" style="--lo:20%;--hi:48%"></span></div>
+          <p class="price__note">Cuestionarios, foros y worksheets de tu plataforma.</p>
+        </li>
+
+        <li class="price" data-reveal style="--i:4">
+          <div class="price__top">
+            <h3 class="price__name">PDF y formato</h3>
+            <span class="price__meta mono">por documento</span>
+            <span class="price__range mono" data-range="formato">$50 a $90</span>
+          </div>
+          <div class="price__track" aria-hidden="true"><span class="price__fill" style="--lo:20%;--hi:36%"></span></div>
+          <p class="price__note">Portada, índice, APA, numeración y márgenes.</p>
+        </li>
+
+        <li class="price" data-reveal style="--i:5">
+          <div class="price__top">
+            <h3 class="price__name">Tesis y proyectos largos</h3>
+            <span class="price__meta mono">por avance o capítulo</span>
+            <span class="price__range mono">a cotizar</span>
+          </div>
+          <div class="price__track" aria-hidden="true"><span class="price__fill price__fill--full"></span></div>
+          <p class="price__note">Capítulos de tesis, reportes clínicos o técnicos extensos con tablas, figuras y bibliografía. Cotización desglosada antes de iniciar.</p>
+        </li>
+
+        <li class="price price--course" data-reveal style="--i:6">
+          <div class="price__top">
+            <h3 class="price__name">Curso completo</h3>
+            <span class="price__meta mono">por curso</span>
+            <span class="price__range mono">desde $100</span>
+          </div>
+          <div class="price__track" aria-hidden="true"><span class="price__fill price__fill--full"></span></div>
+          <p class="price__note">Todas las unidades, evaluaciones y entregas con calendario hasta tu constancia o certificado. Paquetes especiales si llevas varios cursos.</p>
+        </li>
+      </ul>
+
+      <p class="prices__foot">
+        El rango sube con la extensión y la prisa. Primero cerramos el precio exacto por WhatsApp, te mandamos el borrador para que lo revises y pagas por transferencia SPEI hasta aprobarlo.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================ CURSOS -->
+  <section class="section courses" id="cursos">
+    <div class="wrap courses__grid">
+      <div class="courses__copy">
+        <h2 class="h2">También tomamos<br>el curso completo.</h2>
+        <p class="courses__sub">No solo la tarea suelta. Si tienes cursos de capacitación laboral, AWS Academy, Cambridge One o materias en línea y el turno no te deja avanzar, los llevamos unidad por unidad hasta tu constancia o certificado.</p>
+        <a class="btn btn--solid btn--lg" id="courseWa" href="#pedido">Cotizar mi curso</a>
+        <p class="courses__fine mono">Desde $100 por curso · Paquetes con precio especial si llevas varios</p>
+      </div>
+
+      <div class="course-card" data-reveal>
+        <div class="course-card__head mono">
+          <span>Curso completo</span>
+          <span>Incluye</span>
+        </div>
+        <ul class="course-list">
+          <li><span class="tick" aria-hidden="true"></span>Todas las unidades y actividades de la plataforma</li>
+          <li><span class="tick" aria-hidden="true"></span>Foros, proyectos y evaluaciones escritas</li>
+          <li><span class="tick" aria-hidden="true"></span>Calendario por unidad, para que nada cierre</li>
+          <li><span class="tick" aria-hidden="true"></span>Un solo interlocutor para todo el curso</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ TIEMPO -->
+  <section class="section time">
+    <div class="wrap time__in">
+      <h2 class="time__title">Tu tiempo no se recupera.<br><em>El nuestro se compra.</em></h2>
+      <div class="time__body">
+        <p>Una tarde peleando con un formato. Un domingo armando diapositivas. Tres noches leyendo para un foro que cierra el lunes. Ese tiempo tiene precio aunque no aparezca en ninguna factura.</p>
+        <p>Relevo existe para devolvértelo. Tú sigues con tu trabajo, tu familia o tu descanso; nosotros con el documento.</p>
+        <ul class="time__list">
+          <li>Cobramos por el tiempo que te ahorramos, nunca tarifa escondida.</li>
+          <li>Primero ves el borrador y pagas por SPEI hasta aprobarlo.</li>
+          <li>Cada trabajo se hace desde cero y se corrige sin costo hasta cumplir tu rúbrica.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ CALCULADORA -->
+  <section class="section calc" id="calculadora">
+    <div class="wrap calc__grid">
+
+      <div class="calc__head">
+        <h2 class="h2">Calcula tu rango<br>en diez segundos.</h2>
+        <p class="calc__sub">Mueve las tres piezas y te decimos entre cuánto andaría. Es un rango honesto, no una oferta gancho: el precio final se confirma cuando vemos las instrucciones.</p>
+        <p class="mono calc__fine">Estimador, no cotización formal</p>
+      </div>
+
+      <form class="calc__panel" id="calcForm" novalidate>
+        <fieldset class="calc__field">
+          <legend class="mono">Qué es</legend>
+          <div class="seg" role="radiogroup" aria-label="Tipo de trabajo">
+            <label class="seg__opt"><input type="radio" name="kind" value="ensayo" checked><span>Ensayo</span></label>
+            <label class="seg__opt"><input type="radio" name="kind" value="presentacion"><span>Presentación</span></label>
+            <label class="seg__opt"><input type="radio" name="kind" value="cambridge"><span>Cambridge</span></label>
+            <label class="seg__opt"><input type="radio" name="kind" value="tarea"><span>Tarea</span></label>
+            <label class="seg__opt"><input type="radio" name="kind" value="formato"><span>Formato</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc__field">
+          <legend class="mono" id="extLegend">Cuántas páginas</legend>
+          <div class="stepper">
+            <button class="stepper__btn" type="button" data-step="-1" aria-label="Quitar una">−</button>
+            <input class="stepper__input" id="extent" name="extent" type="number" inputmode="numeric" min="1" max="40" value="4" aria-labelledby="extLegend">
+            <button class="stepper__btn" type="button" data-step="1" aria-label="Agregar una">+</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc__field">
+          <legend class="mono">Para cuándo</legend>
+          <div class="seg seg--time" role="radiogroup" aria-label="Plazo de entrega">
+            <label class="seg__opt"><input type="radio" name="rush" value="normal" checked><span>Más de 5 días</span></label>
+            <label class="seg__opt"><input type="radio" name="rush" value="week"><span>Esta semana</span></label>
+            <label class="seg__opt"><input type="radio" name="rush" value="rush"><span>Menos de 48 h</span></label>
+          </div>
+        </fieldset>
+
+        <div class="calc__out" aria-live="polite">
+          <div class="calc__out-top mono">
+            <span>Tu rango</span>
+            <span id="calcTag">Ensayo · 4 páginas</span>
+          </div>
+          <p class="calc__money"><span id="calcMin">$130</span><span class="calc__to">a</span><span id="calcMax">$165</span><span class="calc__cur">MXN</span></p>
+          <p class="calc__disclaimer" id="calcNote">Incluye portada, índice y revisión. La prisa se cobra aparte si es urgente.</p>
+          <a class="btn btn--solid calc__cta" id="calcSend" href="#pedido">Mandar esto por WhatsApp</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================ PROMOS -->
+  <section class="section promos" id="promos">
+    <div class="wrap">
+      <div class="sheet-head">
+        <h2 class="h2">Promociones que<br>sí puedo sostener.</h2>
+        <div class="sheet-head__side">
+          <p>Ninguna baja el precio después de acordado. Son reglas fijas, no descuentos de temporada.</p>
+          <p class="mono sheet-head__note">Se aplican al cotizar, no después</p>
+        </div>
+      </div>
+
+      <div class="promo-grid">
+        <article class="promo" data-reveal style="--i:0">
+          <span class="promo__tag mono">Incluido</span>
+          <h3 class="promo__title">Formato incluido</h3>
+          <p class="promo__body">Portada, índice, APA y numeración van dentro del precio del ensayo. No es un extra que aparece al final.</p>
+          <p class="promo__foot mono">En ensayos e investigaciones</p>
+        </article>
+
+        <article class="promo" data-reveal style="--i:1">
+          <span class="promo__tag mono">10% menos</span>
+          <h3 class="promo__title">Segunda del mismo curso, 10% menos</h3>
+          <p class="promo__body">Ya leímos las fuentes y conocemos la rúbrica. El descuento va en la segunda entrega, cuando el trabajo pesa menos.</p>
+          <p class="promo__foot mono">Misma materia, mismo curso</p>
+        </article>
+
+        <article class="promo" data-reveal style="--i:2">
+          <span class="promo__tag mono">+30% prisa</span>
+          <h3 class="promo__title">La prisa se cobra, no se regala</h3>
+          <p class="promo__body">Menos de 48 horas lleva 30% de recargo y te lo decimos antes. Prefiero eso a entregarte algo a medias.</p>
+          <p class="promo__foot mono">Se suma al rango</p>
+        </article>
+
+        <article class="promo" data-reveal style="--i:3">
+          <span class="promo__tag mono">$30 menos</span>
+          <h3 class="promo__title">Trae a alguien, $30 menos</h3>
+          <p class="promo__body">En tu siguiente trabajo, cuando la persona que recomendaste ya pagó el suyo. No antes.</p>
+          <p class="promo__foot mono">Una vez por persona</p>
+        </article>
+      </div>
+
+      <div class="promo-rule" data-reveal>
+        <p class="promo-rule__big">Piso de $50 y techo de $250 por trabajo.</p>
+        <p class="promo-rule__text">Debajo de $50 el trabajo no se sostiene. Arriba de $250 se cotiza aparte, con el alcance desglosado. Los descuentos no aplican a trabajos urgentes ni a la primera entrega de un curso nuevo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ TURNO (3D pinneado) -->
+  <section class="turno" id="turno">
+    <div class="turno__sticky">
+      <canvas class="turno__gl" id="turnoScene" aria-hidden="true"></canvas>
+      <div class="turno__veil" aria-hidden="true"></div>
+
+      <div class="wrap turno__grid">
+        <div class="turno__copy">
+          <h2 class="h2 turno__title">Así avanza<br>mientras no estás.</h2>
+
+          <ol class="steps" id="steps">
+            <li class="step is-on" data-step="0">
+              <span class="step__k mono">Paso 1</span>
+              <h3 class="step__title">Mandas las instrucciones</h3>
+              <p class="step__body">Captura, PDF o el link de tu plataforma. Si no la tienes a mano, basta con contarla.</p>
+            </li>
+            <li class="step" data-step="1">
+              <span class="step__k mono">Paso 2</span>
+              <h3 class="step__title">Cerramos precio y fecha</h3>
+              <p class="step__body">Te decimos el número exacto y si llegamos. Ahí decides, sin compromiso.</p>
+            </li>
+            <li class="step" data-step="2">
+              <span class="step__k mono">Paso 3</span>
+              <h3 class="step__title">Se escribe con tus criterios</h3>
+              <p class="step__body">Una persona, no una plantilla, con la fecha de entrega a la vista.</p>
+            </li>
+            <li class="step" data-step="3">
+              <span class="step__k mono">Paso 4</span>
+              <h3 class="step__title">Revisas y se corrige</h3>
+              <p class="step__body">Si algo no cumple lo que pedían las instrucciones, se ajusta sin costo.</p>
+            </li>
+          </ol>
+
+          <p class="turno__note mono">Ejemplo ilustrativo del proceso</p>
+        </div>
+      </div>
+
+      <div class="turno__meter" aria-hidden="true">
+        <span class="mono">Avance</span>
+        <div class="turno__meter-track"><span id="turnoBar"></span></div>
+        <span class="mono" id="turnoPct">0%</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ DATOS Y SEGURIDAD -->
+  <section class="section data" id="datos">
+    <div class="wrap data__grid">
+      <div class="data__copy">
+        <h2 class="h2">Qué necesitamos<br>de ti.</h2>
+        <p class="data__sub">Depende de la actividad, y nunca más de lo necesario. Si te falta algo, lo armamos contigo.</p>
+
+        <ul class="need-list">
+          <li>
+            <span class="mono need__k">Ensayo o investigación</span>
+            <p class="need__v">Las instrucciones, la rúbrica o los criterios, la materia, la extensión, la fecha y el formato.</p>
+          </li>
+          <li>
+            <span class="mono need__k">Presentación</span>
+            <p class="need__v">Tema, número de diapositivas, si lleva notas del expositor y la plantilla de tu escuela o empresa.</p>
+          </li>
+          <li>
+            <span class="mono need__k">Plataforma o Cambridge</span>
+            <p class="need__v">Captura de la unidad, actividades pendientes, fecha de cierre y el nivel o libro que usas.</p>
+          </li>
+          <li>
+            <span class="mono need__k">Curso completo</span>
+            <p class="need__v">Temario o lista de unidades, plataforma, fechas de cada entrega y hasta dónde vas.</p>
+          </li>
+          <li>
+            <span class="mono need__k">Tesis o proyecto largo</span>
+            <p class="need__v">Tema, índice o protocolo, capítulo a desarrollar, fuentes o libros base, estilo de citas y fecha.</p>
+          </li>
+          <li>
+            <span class="mono need__k">PDF y formato</span>
+            <p class="need__v">El documento, la guía de estilo y lo que pida la portada o la numeración.</p>
+          </li>
+        </ul>
+      </div>
+
+      <aside class="secure" data-reveal>
+        <h3 class="secure__title">Tus datos, en privado.</h3>
+        <ul class="secure__list">
+          <li><span class="tick" aria-hidden="true"></span><span>Tu nombre no aparece en el documento, salvo que tú lo pidas.</span></li>
+          <li><span class="tick" aria-hidden="true"></span><span>Lo que mandas no se comparte ni se revende.</span></li>
+          <li><span class="tick" aria-hidden="true"></span><span>Borramos tus archivos cuando nos lo pides.</span></li>
+        </ul>
+        <p class="secure__note mono">Si algo te incomoda, se habla antes de empezar.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================================================ CAMBRIDGE -->
+  <section class="section cambridge">
+    <div class="wrap cambridge__grid">
+      <div class="cambridge__head">
+        <h2 class="h2">Cambridge One,<br>hasta el cierre.</h2>
+        <p>Si tu curso vive en Cambridge One, cubrimos las unidades y las entregas con fecha, para que llegues al final sin pendientes.</p>
+      </div>
+
+      <ul class="cambridge__list">
+        <li><span class="tick" aria-hidden="true"></span>Unidades y actividades del libro</li>
+        <li><span class="tick" aria-hidden="true"></span>Listening y reading con sus respuestas</li>
+        <li><span class="tick" aria-hidden="true"></span>Tareas con fecha límite en la plataforma</li>
+        <li><span class="tick" aria-hidden="true"></span>Revisión antes de que cierre la unidad</li>
+      </ul>
+
+      <p class="cambridge__price mono">De $60 a $150 por unidad</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ GARANTIA -->
+  <section class="section guarantee">
+    <div class="wrap guarantee__grid">
+      <div class="guarantee__copy">
+        <h2 class="guarantee__title">Revisiones hasta que cumpla lo que pide la actividad.</h2>
+        <p class="guarantee__body">Revisas el trabajo contra la rúbrica o los criterios del curso. Si algo no coincide, lo corregimos y te lo devolvemos. Corregir no se cobra.</p>
+      </div>
+
+      <div class="guarantee__side">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4"/>
+            <path d="M36 62 52 78 86 42" fill="none" stroke="currentColor" stroke-width="4"/>
+          </svg>
+          <span class="seal__word mono">REVISADO</span>
+        </div>
+        <p class="guarantee__fine mono">No garantizamos calificaciones. Eso depende de quien evalúa. Garantizamos que el trabajo cumpla los criterios o se corrige.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FAQ -->
+  <section class="section faq" id="preguntas">
+    <div class="wrap faq__grid">
+      <h2 class="h2 faq__title">Antes de<br>mandar.</h2>
+
+      <div class="faq__list">
+        <details class="q" open>
+          <summary class="q__sum">
+            <span class="q__q">¿Cómo se calcula el precio?</span>
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__wrap"><p class="q__a">Por extensión, fuentes y fecha. La calculadora te da un rango y por WhatsApp te damos el número exacto con el alcance ya cerrado. No cambia después.</p></div>
+        </details>
+
+        <details class="q">
+          <summary class="q__sum">
+            <span class="q__q">¿Necesito ser estudiante?</span>
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__wrap"><p class="q__a">No. Trabajamos con estudiantes, pero también con profesionistas, gente en posgrado y personas que están sacando una certificación en línea. El criterio es el mismo: hay algo escrito que entregar y una fecha.</p></div>
+        </details>
+
+        <details class="q">
+          <summary class="q__sum">
+            <span class="q__q">¿De verdad hacen cursos completos?</span>
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__wrap"><p class="q__a">Sí. Cubrimos las unidades, los foros y las entregas escritas de un curso en línea, con calendario por unidad.</p></div>
+        </details>
+
+        <details class="q">
+          <summary class="q__sum">
+            <span class="q__q">¿Qué necesitas para cotizar?</span>
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__wrap"><p class="q__a">Las instrucciones, una captura de la rúbrica o el enlace de la plataforma. Con eso alcanza. Si no tienes nada de eso, descríbelo con tus palabras y lo armamos juntos.</p></div>
+        </details>
+
+        <details class="q">
+          <summary class="q__sum">
+            <span class="q__q">¿Y si piden cambios?</span>
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__wrap"><p class="q__a">Los aplicamos sin costo, siempre que sean sobre lo que ya pedían las instrucciones. Esa es la garantía completa: revisiones hasta que cumpla los criterios.</p></div>
+        </details>
+
+        <details class="q">
+          <summary class="q__sum">
+            <span class="q__q">¿Es seguro mandar mis datos?</span>
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__wrap"><p class="q__a">Sí. Tu nombre no aparece en el documento, lo que mandas no se comparte y borramos tus archivos cuando nos lo pides.</p></div>
+        </details>
+
+        <details class="q">
+          <summary class="q__sum">
+            <span class="q__q">¿Puedo pagar menos de $50?</span>
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__wrap"><p class="q__a">No. Debajo de $50 el trabajo no se sostiene. Si tu encargo es muy chico, se puede sumar a otro o cotizar junto con el formato del documento.</p></div>
+        </details>
+
+        <details class="q">
+          <summary class="q__sum">
+            <span class="q__q">¿Lo pueden tener para hoy?</span>
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__wrap"><p class="q__a">A veces sí, con el recargo de 30% por prisa. Mándanos las instrucciones y la hora exacta: te decimos si llegamos antes de que pagues.</p></div>
+        </details>
+
+        <details class="q">
+          <summary class="q__sum">
+            <span class="q__q">¿Cómo se paga?</span>
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__wrap"><p class="q__a">Solo por transferencia SPEI, con el monto acordado por WhatsApp. Primero te mandamos el borrador y lo revisas; cuando lo apruebas haces la transferencia y te entregamos el archivo final o editable.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ PEDIDO -->
+  <section class="section order" id="pedido">
+    <div class="wrap">
+      <div class="sheet-head">
+        <h2 class="h2">Manda las instrucciones.</h2>
+        <div class="sheet-head__side">
+          <p>Llena lo que sepas. Al final se arma un mensaje con todo y lo mandas por WhatsApp.</p>
+          <p class="mono sheet-head__note">No pagas nada aquí</p>
+        </div>
+      </div>
+
+      <div class="order__grid">
+        <form class="order__form" id="orderForm" novalidate>
+          <div class="f-row">
+            <div class="f">
+              <label class="mono" for="fName">Nombre</label>
+              <input id="fName" name="name" type="text" autocomplete="name" required aria-describedby="errName">
+              <p class="f__err" id="errName" aria-live="polite"></p>
+            </div>
+            <div class="f">
+              <label class="mono" for="fSubject">Tema o materia</label>
+              <input id="fSubject" name="subject" type="text" placeholder="Historia, Inglés, Cálculo">
+            </div>
+          </div>
+
+          <div class="f-row">
+            <div class="f">
+              <label class="mono" for="fService">Servicio</label>
+              <div class="sel">
+                <select id="fService" name="service" required aria-describedby="errService">
+                  <option value="">Elige uno</option>
+                  <option value="Ensayo o investigación">Ensayo o investigación</option>
+                  <option value="Tesis o avance de capítulo">Tesis o avance de capítulo</option>
+                  <option value="Presentación">Presentación o infografía</option>
+                  <option value="Curso completo">Curso completo</option>
+                  <option value="Reporte o documento de trabajo">Reporte o documento de trabajo</option>
+                  <option value="PDF y formato">PDF y formato</option>
+                  <option value="Cambridge One">Cambridge One</option>
+                  <option value="Tarea en línea">Tarea en línea</option>
+                  <option value="Otra cosa">Otra cosa</option>
+                </select>
+                <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5l5-5"/></svg>
+              </div>
+              <p class="f__err" id="errService" aria-live="polite"></p>
+            </div>
+            <div class="f">
+              <label class="mono" for="fDate">Entrega</label>
+              <input id="fDate" name="date" type="date" required aria-describedby="errDate">
+              <p class="f__err" id="errDate" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="f-row">
+            <div class="f">
+              <label class="mono" for="fPages">Extensión</label>
+              <input id="fPages" name="pages" type="text" placeholder="8 páginas, 12 diapositivas">
+            </div>
+            <fieldset class="f f--fieldset">
+              <legend class="mono">Formato</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="format" value="PDF" checked><span>PDF</span></label>
+                <label class="chip"><input type="radio" name="format" value="DOCX"><span>DOCX</span></label>
+                <label class="chip"><input type="radio" name="format" value="Google Docs"><span>Google Docs</span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="f">
+            <label class="mono" for="fBrief">Qué pide la actividad</label>
+            <textarea id="fBrief" name="brief" rows="4" placeholder="Pega las instrucciones, la rúbrica o descríbelo con tus palabras."></textarea>
+          </div>
+
+          <div class="order__actions">
+            <button class="btn btn--solid btn--lg" type="submit" id="sendBtn">
+              <span id="sendLabel">Abrir WhatsApp con mi pedido</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M8.5 3.5 13 8l-4.5 4.5"/></svg>
+            </button>
+            <button class="btn btn--ghost btn--lg" type="button" id="copyBtn">Copiar</button>
+          </div>
+          <p class="order__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="ticket" aria-label="Resumen de tu pedido">
+          <div class="ticket__paper" id="ticketPaper">
+            <div class="ticket__head mono">
+              <span>RELEVO</span>
+              <span id="tkNumber">N.º 0001</span>
+            </div>
+            <div class="ticket__row">
+              <span class="mono">Para</span>
+              <span class="ticket__v" id="tkName" data-ph="tu nombre"></span>
+            </div>
+            <div class="ticket__row">
+              <span class="mono">Servicio</span>
+              <span class="ticket__v" id="tkService" data-ph="sin elegir"></span>
+            </div>
+            <div class="ticket__row">
+              <span class="mono">Tema</span>
+              <span class="ticket__v" id="tkSubject" data-ph="sin tema"></span>
+            </div>
+            <div class="ticket__row">
+              <span class="mono">Entrega</span>
+              <span class="ticket__v" id="tkDate" data-ph="sin fecha"></span>
+            </div>
+            <div class="ticket__row">
+              <span class="mono">Formato</span>
+              <span class="ticket__v" id="tkFormat">PDF</span>
+            </div>
+            <div class="ticket__range">
+              <span class="mono">Rango estimado</span>
+              <span class="ticket__money" id="tkRange" data-ph="sin calcular">Sin calcular</span>
+            </div>
+            <div class="ticket__stamp mono" id="tkStamp" aria-hidden="true">BORRADOR</div>
+          </div>
+          <p class="ticket__note mono">Nada se envía hasta que tú lo mandes por WhatsApp.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" id="contacto">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <a class="brand" href="#inicio" aria-label="Relevo, inicio">
+        <svg class="brand__mark" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+          <path d="M3 14.6 8.4 20"/>
+          <path d="M11.6 20.2 24.6 7.2"/>
+        </svg>
+        <span class="brand__word">relevo</span>
+      </a>
+      <p class="foot__line">Lo hacemos por ti.</p>
+    </div>
+
+    <div class="foot__col">
+      <p class="mono foot__k">Contacto</p>
+      <a id="footWa" href="#pedido">WhatsApp</a>
+      <a id="footIg" href="#" hidden>Instagram</a>
+    </div>
+
+    <div class="foot__col">
+      <p class="mono foot__k">Precios</p>
+      <a href="#precios">Todos los rangos</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#promos">Promociones</a>
+    </div>
+
+    <div class="foot__col foot__col--wide">
+      <p class="mono foot__k">Privacidad</p>
+      <p class="foot__note">Tu nombre no aparece en el trabajo y lo que mandas no se comparte. Los precios se confirman por WhatsApp antes de empezar.</p>
+    </div>
+  </div>
+
+  <div class="wrap foot__base">
+    <span class="mono">© <span id="year">2026</span> Relevo</span>
+    <span class="mono">Precios en MXN · Servicio académico digital</span>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/precios.js"></script>
+<script src="assets/js/track.js"></script>
+<script type="module" src="assets/js/turno.js"></script>
+</body>
+</html>

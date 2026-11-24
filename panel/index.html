@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Relevo · Panel</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B0D12">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="panel.css?v=6">
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar" aria-label="Navegación principal">
+    <div class="sidebar__head">
+      <a class="brand" href="#hoy" data-view="hoy">
+        <span class="brand__word">relevo</span>
+        <span class="status-dot only-server" id="waDot" title="Estado de WhatsApp" hidden></span>
+      </a>
+      <button type="button" class="btn btn--quiet btn--icon sidebar__close" id="navClose" aria-label="Cerrar menú">✕</button>
+    </div>
+
+    <div class="sidebar__cta">
+      <button type="button" class="btn btn--solid btn--block" id="newOrder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        Nuevo pedido
+      </button>
+    </div>
+
+    <nav class="sidenav" aria-label="Secciones">
+      <p class="sidenav__group">Operación</p>
+      <button type="button" class="sidenav__item" data-view="hoy" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/></svg>
+        <span>Hoy</span>
+      </button>
+      <button type="button" class="sidenav__item" data-view="pedidos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+        <span>Pedidos</span>
+        <span class="sidenav__badge" id="badgePedidos" hidden>0</span>
+      </button>
+      <button type="button" class="sidenav__item" data-view="clientes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+        <span>Clientes</span>
+      </button>
+      <button type="button" class="sidenav__item only-server" data-view="cursos" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M2 9.5 12 4l10 5.5-10 5.5L2 9.5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+        <span>Cursos</span>
+      </button>
+      <button type="button" class="sidenav__item" data-view="cotizar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7.5h7M8.5 12h2M13.5 12h2M8.5 16h2M13.5 16h2"/></svg>
+        <span>Cotizar</span>
+      </button>
+
+      <p class="sidenav__group">Herramientas</p>
+      <button type="button" class="sidenav__item only-server" data-view="whatsapp" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.3 18.7z"/><path d="M9.5 10c.5 2.6 2.2 4.3 4.8 4.8"/></svg>
+        <span>WhatsApp</span>
+        <span class="sidenav__badge sidenav__badge--hot" id="badgeWa" hidden>0</span>
+      </button>
+      <button type="button" class="sidenav__item only-server" data-view="cms" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+        <span>Mi CMS</span>
+      </button>
+      <button type="button" class="sidenav__item only-server" data-view="analisis" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 19h16"/><path d="m5 15 4-4 4 3 6-7"/></svg>
+        <span>Análisis</span>
+      </button>
+      <button type="button" class="sidenav__item" data-view="trafico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 20v-7M12 20V6M19 20v-11"/></svg>
+        <span>Tráfico</span>
+      </button>
+      <button type="button" class="sidenav__item only-server" data-view="sistema" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+        <span>Sistema</span>
+      </button>
+    </nav>
+
+    <div class="sidebar__foot">
+      <div class="sidebar__meta only-server" id="waStatusWrap" hidden>
+        <span id="waStatusLabel">Conectado</span>
+      </div>
+      <div class="sidebar__foot-row">
+        <button type="button" class="sidenav__util" data-side-act="export">Respaldo</button>
+        <button type="button" class="sidenav__util" data-side-act="settings">Ajustes</button>
+        <button type="button" class="sidenav__util sidenav__util--danger only-server" data-side-act="logout" hidden>Salir</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+  <div class="main-col">
+    <header class="topbar">
+      <button type="button" class="btn btn--quiet btn--icon" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a class="brand" href="#hoy" data-view="hoy">
+        <span class="brand__word">relevo</span>
+      </a>
+      <div class="topbar__actions">
+        <button type="button" class="btn btn--solid btn--sm" id="newOrderMob">+ Pedido</button>
+        <button type="button" class="btn btn--quiet btn--icon btn--sm" id="menuBtn" aria-label="Más opciones" aria-expanded="false">⋯</button>
+      </div>
+    </header>
+
+    <main class="view" id="view"></main>
+  </div>
+</div>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitle"></dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/config.js?v=6"></script>
+<script src="../assets/js/precios.js?v=6"></script>
+<script src="store.js?v=6"></script>
+<script src="analisis.js?v=6"></script>
+<script src="panel.js?v=6"></script>
+<script>
+  if (window.PanelStore && window.PanelStore.server && !window.PanelStore.authRequired) {
+    Array.prototype.forEach.call(document.querySelectorAll('.only-server'), function (el) { el.hidden = false; });
+  }
+</script>
+</body>
+</html>

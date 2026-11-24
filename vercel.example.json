@@ -1,0 +1,28 @@
+{
+  "redirects": [
+    {
+      "source": "/panel",
+      "destination": "/panel/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://your-backend.example.com/api/:path*"
+    },
+    {
+      "source": "/t",
+      "destination": "https://your-backend.example.com/t"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/panel/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Cache-Control", "value": "no-store, must-revalidate" }
+      ]
+    }
+  ]
+}

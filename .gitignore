@@ -1,0 +1,32 @@
+# Dependencias y builds
+node_modules/
+npm-debug.log*
+.vercel/
+
+# Secretos y entorno local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+panel-auth.json
+panel-password.txt
+cms-api-key.txt
+social.env
+agent.env
+
+# Datos, sesiones y bases locales
+*.db
+*.db-wal
+*.db-shm
+backend/data/
+backend/vault-demo/
+backend/work/
+.wwebjs_cache/
+wa-auth/
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
